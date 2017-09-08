@@ -1,0 +1,46 @@
+{% extends 'frontend/base.html' %}
+{% block title %}
+    About
+{% endblock %}
+{% load staticfiles %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/about.css' %}"/>
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="col-sm-2 col-lg-5 col-md-3">
+            <div class="thumbnail">
+                        <a href="#">
+                            <img src="{{ item.image }}" class="img-responsive">
+                        </a>
+                        <div class="caption">
+                            <h2>{{ item.name }}</h2>
+                        </div>
+                    </div>
+        </div>
+        <div class="col-sm-10 col-lg-7 col-md-9  ">
+            <div>
+                <ul class="nav nav-justified">
+                    <li><button type="button" class="btn btn-warning active">Add to Wishlist</button></li>
+                </ul>
+            </div>
+            <div class="body">
+                <h1 style="color:maroon">&nbsp;&nbsp;<strong>{{ item.name }}</strong></h1><br>
+                <h2 style="margin-left: 70px"><strong>Available</strong></h2><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ remaining }}
+                <h2 style="margin-left: 70px"><strong>Description</strong></h2><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.description }}<br>
+                <h2 style="margin-left: 70px"><strong>Why do you need this equipment?</strong></h2><br>
+                <form action="{% url 'frontend:request' item.id %}" method="post">
+                    {% csrf_token %}
+             <textarea name="reason" cols="100" rows="8" style="margin-left: 90px">
+
+                    </textarea>
+                    <label style="margin-left: 70px"> <h2><strong>How many items do you need?</strong></h2><br></label>
+                    <input type="number" class="form-control" style="margin-left: 90px; width: 200px;" name="number">
+                    <button type="submit" class="btn btn-primary" style="margin-left: 70px; margin-top: 10px">Request</button>
+                </form>
+        </div>
+
+    </div>
+{% endblock %}

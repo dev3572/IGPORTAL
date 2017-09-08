@@ -1,0 +1,16 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/signup.css' %}"/>
+{% endblock %}
+{% block body %}
+<form class="form-horizontal" action="" method="POST">
+  {% csrf_token %}
+  {% include 'frontend/user_form_template.html' %}
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

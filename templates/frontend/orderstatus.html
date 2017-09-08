@@ -1,0 +1,30 @@
+{% extends 'frontend/base.html' %}
+{% block title %}
+    About
+{% endblock %}
+{% load staticfiles %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/orderstatus.css' %}"/>
+{% endblock %}
+{% block body %}
+    {% for item in track %}
+    <div>
+        <h1 style="color: white; font-family: 'Adobe Garamond Pro Bold'"><strong>{{ item.name }}</strong></h1>
+        <hr>
+        <div class="statusbutton">
+            <a href="#" {% if item.Status == 1%} class="btn btn-info btn-circle"
+            {% else%} class="btn btn-default btn-circle"{% endif %}></a>
+            <h2 style="color:white">Request Made</h2>
+            <a href="#" {% if item.Status == 2%} class="btn btn-info btn-circle"
+            {% else%} class="btn btn-default btn-circle"{% endif %}></a>
+            <h2 style="color:white">Request Pending</h2>
+            <a href="#" {% if item.Status == 3%} class="btn btn-info btn-circle"
+            {% else%} class="btn btn-default btn-circle"{% endif %}></a>
+            <h2 style="color:white">Request Approved</h2>
+            <a href="#" {% if item.Status == 4%} class="btn btn-info btn-circle"
+            {% else%} class="btn btn-default btn-circle"{% endif %}></a>
+            <h2 style="color:white">Request Declined</h2>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

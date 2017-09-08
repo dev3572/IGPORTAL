@@ -1,0 +1,33 @@
+html {
+  height: 100%; /*Fixes the height to 100% of the viewport*/
+}
+body{
+    height:100%;
+    background: url(back.jpg) no-repeat center center fixed;
+    padding-top: 87px; /*50px for the height of the navbar + 37px for the offset*/
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.navbar-offset {
+    top: 37px; /*Offsets the top navbar 37px from the top of the viewport*/
+}
+.navbar{
+    border-radius: 0;
+    min-height: 60px;
+    padding-right: 15px;
+    background-color: #417690;
+}
+.navbar-brand{
+    font-weight: bold;
+    font-family: 'Patua One', cursive;
+    text-align: center;
+    font-size: 25px;
+}
+.container-fluid .img-responsive{
+    height: 250px;
+}
+.items-container {
+    margin-top: 50px;
+}

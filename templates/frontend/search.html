@@ -1,0 +1,46 @@
+{% extends 'frontend/base.html' %}
+{% block title %}
+    Search Results
+{% endblock %}
+{% load staticfiles %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/items.css' %}"/>
+{% endblock %}
+{% block body %}
+    {% if name %}
+    <ul>
+        {% for item in name %}
+            <div class="container">
+                <div>
+                    <a href="{% url 'frontend:detail' item.id %}"><img src="{{ item.image }}"></a>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            Name-
+                            <a href="{% url 'frontend:detail' item.id %}">{{ item.name }}</a>
+                        </li>
+                        <li>
+                            Description-
+                            {{ item.description }}
+                        </li>
+                        <li>
+                            Available-{%if item.availability %}
+                            Yes
+                            {% else %}
+                            No
+                            {% endif %}
+                        </li>
+                        <li>
+                            Quantity-
+                            {{ item.quantity }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h2>No items match your search.Try using another keyword</h2>
+    {% endif %}
+{% endblock %}

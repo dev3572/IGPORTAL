@@ -1,0 +1,21 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'request/about.css' %}"/>
+{% endblock %}
+{% block body %}
+    {% if remaining %}
+    <div class="alert alert-success" style="margin-top: 100px">
+		<div align="middle"><h3><strong>Congrats!</strong> Your request has been made.<br>
+			Contact {{equipment.Mentor}}  for further queries!</h3><h3>Contact Details-{{ equipment.MentorEmail }}</h3></div>
+		</div>
+		<h1 align="middle"> Selected Equipment : {{ equipment.name}} </h1>
+		<div align="middle"><img src="{{equipment.image}}" class="img-responsive" height="550" width="550"></div>
+        <h1 align="center"> Status : Request Made</h1>
+		</div>
+    {% else %}
+    <div class="alert alert-warning" style="margin-top: 100px">
+		<h1>The item that you requested is not currently available</h1>
+		</div>
+    {% endif %}
+{% endblock %}

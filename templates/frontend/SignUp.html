@@ -1,0 +1,29 @@
+{% extends 'frontend/base.html' %}
+{% block title %}
+    Sign Up
+{% endblock %}
+{% load staticfiles %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/signup.css' %}"/>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <h4 style="color:red;"><span class="glyphicon glyphicon-user-add"></span> Sign Up</h4>
+    <form role="form" method="post" name="signupforms">
+                  {% csrf_token %}
+                  <div class="form-group">
+                  <label for="username"><span class="glyphicon glyphicon-user"></span> Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter Name" name="username">
+                    </div>
+                <div class="form-group">
+                  <label for="email"><span class="glyphicon glyphicon-envelope"></span> Email</label>
+                  <input type="email" class="form-control" id="username" placeholder="Enter email" name="email">
+                </div>
+                <div class="form-group">
+                  <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                  <input type="password" class="form-control" id="psw" placeholder="Enter password" name="password">
+                </div>
+                <button type="submit" class="btn btn-default btn-success btn-block" onsubmit="{%url 'frontend:signup' %}"><span class="glyphicon glyphicon-off"></span> Sign Up</button>
+              </form>
+</div>
+{% endblock %}

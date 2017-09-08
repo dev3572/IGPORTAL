@@ -1,0 +1,38 @@
+html, body {
+  height: 100%; /*Fixes the height to 100% of the viewport*/
+}
+body{
+    background: url(back.jpg) no-repeat center center fixed;
+    padding-top: 87px; /*50px for the height of the navbar + 37px for the offset*/
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.navbar-offset {
+    top: 37px; /*Offsets the top navbar 37px from the top of the viewport*/
+}
+.container-fluid{
+  height: 100%; /*Sets the scrollable area to 100% of the viewport*/
+}
+.navbar{
+    border-radius: 0;
+    min-height: 60px;
+    padding-right: 15px;
+    background-color: #417690;
+}
+.navbar-brand{
+    font-weight: bold;
+    font-family: 'Patua One', cursive;
+    text-align: center;
+    font-size: 25px;
+}
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.42;
+  border-radius: 15px;
+}
